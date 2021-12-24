@@ -12,7 +12,7 @@ const int TRACK_BUFFER(240);  // frame number of tracking states buffers
 const int TASK(TASK_MODES::TRACK);  // task mode: TRACK | DETECT
 const int VISUAL(VISUAL_MODES::ONLINE); // visualization mode: ONLINE | OFFLINE
 const float RESIZE_RATIO(0.55f);  // Resizing rario to visualize online
-const int DELAY(1);  // online frame visualization delay(ms)
+const int DELAY(50);  // online frame visualization delay(ms)
 
 // 2 Det/Track classification thresholds for the byte tracker
 const float HIGH_DET_THRESH(0.5f);  // 0.5f > m_track_thresh as high(1st)
@@ -44,7 +44,7 @@ static unordered_map<string, int> CLASS2ID;
 static unordered_map<int, string> ID2CLASS;
 
 // ---------- Define file paths
-static const string VIDEO_PATH("../videos/7.mp4");
+static const string VIDEO_PATH("../videos/test_30.mp4");
 static const string ENGINE_PATH("./engines/yolox_tiny_det_c5_trt_f16.engine");
 
 
@@ -272,7 +272,7 @@ int main(int argc, char** argv)
 			total_ms += (int)chrono::duration_cast<chrono::microseconds>(end - start).count();
 
 			// draw the detection results
-			drawDetectResMC(objects, frame_id, total_ms, img);
+			drawDetectMC(objects, frame_id, total_ms, img);
 
 			if (VISUAL == VISUAL_MODES::OFFLINE)
 			{
@@ -302,11 +302,7 @@ int main(int argc, char** argv)
 		delete[] input;
 		input = nullptr;
 
-		waitKey(1);
-		/*if (c > 0)
-		{
-			break;
-		}*/
+		cv::waitKey(1);
 	}
 
 	cap.release();
@@ -784,7 +780,7 @@ void drawTrackMC(const std::unordered_map<int, vector<Track>>& output_tracks_dic
 		LINE_AA);
 }
 
-void drawDetectResMC(const vector<Object>& objects,
+void drawDetectMC(const vector<Object>& objects,
 	const int& num_frames,
 	const int& total_ms, 
 	cv::Mat& img)

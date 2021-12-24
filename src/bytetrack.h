@@ -190,6 +190,6 @@ void drawTrackMC(const std::unordered_map<int, vector<Track>>& output_tracks_dic
 
 
 // ---------- Write detection results
-void drawDetectResMC(const vector<Object>& objects,
+void drawDetectMC(const vector<Object>& objects,
 	const int& num_frames, const int& total_ms,
 	cv::Mat& img);  // multi-class
