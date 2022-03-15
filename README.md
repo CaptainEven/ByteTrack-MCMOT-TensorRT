@@ -1,2 +1,2 @@
 # ByteTrack-MCMOT-TensorRT
-MCMOT TensorRT deployment(C/C++, VS) based on ByteTrack
+MCMOT TensorRT deployment(C/C++, Visual Studio) based on ByteTrack
