@@ -7,5 +7,5 @@ MCMOT TensorRT deployment(C/C++, Visual Studio) based on ByteTrack
 MCMO
 
 
-## ByteTrack-MCMOT
-[]ByteTrack-MCMOT](https://github.com/CaptainEven/MCMOT-ByteTrack)
+## MCMOT-ByteTrack
+[MCMOT-ByteTrack](https://github.com/CaptainEven/MCMOT-ByteTrack)
